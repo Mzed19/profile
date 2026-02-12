@@ -19,6 +19,10 @@
             --text-muted: #7d8590;
         }
 
+        html {
+            font-size: clamp(16px, 1.6vw + 10px, 20px);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -101,7 +105,7 @@
 
         .loading-text {
             font-family: 'VT323', monospace;
-            font-size: 16px;
+            font-size: 20px;
             color: var(--cyan-accent);
             margin-top: 10px;
         }
@@ -123,7 +127,7 @@
             align-items: center;
             justify-content: center;
             font-family: 'Press Start 2P', monospace;
-            font-size: 12px;
+            font-size: 15px;
             color: var(--text-muted);
             box-shadow: 0 0 20px rgba(46, 246, 106, 0.3);
         }
@@ -139,13 +143,13 @@
 
         .about h2 {
             font-family: 'Press Start 2P', monospace;
-            font-size: 18px;
+            font-size: 23px;
             color: var(--cyan-accent);
             margin-bottom: 20px;
         }
 
         .about p {
-            font-size: 22px;
+            font-size: 28px;
             line-height: 1.8;
             color: var(--text-light);
         }
@@ -157,7 +161,7 @@
 
         .skills h2 {
             font-family: 'Press Start 2P', monospace;
-            font-size: 18px;
+            font-size: 23px;
             color: var(--cyan-accent);
             margin-bottom: 30px;
             text-align: center;
@@ -183,7 +187,7 @@
 
         .skill-category h3 {
             font-family: 'Press Start 2P', monospace;
-            font-size: 12px;
+            font-size: 15px;
             color: var(--pink-accent);
             margin-bottom: 15px;
         }
@@ -194,7 +198,7 @@
 
         .skill-list li {
             padding: 5px 0;
-            font-size: 18px;
+            font-size: 25px;
             color: var(--text-light);
         }
 
@@ -249,13 +253,13 @@
 
         .project-card h3 {
             font-family: 'Press Start 2P', monospace;
-            font-size: 12px;
+            font-size: 15px;
             color: var(--primary-green);
             margin-bottom: 10px;
         }
 
         .project-card p {
-            font-size: 18px;
+            font-size: 23px;
             color: var(--text-muted);
         }
 
@@ -287,7 +291,7 @@
             color: var(--primary-green);
             transition: all 0.3s;
             font-family: 'Press Start 2P', monospace;
-            font-size: 12px;
+            font-size: 15px;
         }
 
         .link-card:hover {
@@ -299,15 +303,23 @@
         footer {
             text-align: center;
             padding: 30px 0;
-            font-size: 16px;
+            font-size: 20px;
             color: var(--text-muted);
             border-top: 1px solid var(--primary-green);
         }
 
         /* Responsive */
         @media (max-width: 768px) {
+            html {
+                font-size: clamp(20px, 3.2vw + 14px, 24px);
+            }
+
+            body {
+                font-size: 24px;
+            }
+
             h1 {
-                font-size: 40px;
+                font-size: 72px;
                 letter-spacing: 4px;
                 text-shadow:
                     2px 2px 0px var(--pink-accent),
@@ -316,11 +328,27 @@
             }
 
             .subtitle {
-                font-size: 14px;
+                font-size: 20px;
             }
 
             .tagline {
-                font-size: 18px;
+                font-size: 26px;
+            }
+
+            .about p {
+                font-size: 30px;
+            }
+
+            .skill-list li {
+                font-size: 22px;
+            }
+
+            .project-card p {
+                font-size: 22px;
+            }
+
+            footer {
+                font-size: 20px;
             }
 
             .about,
