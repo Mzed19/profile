@@ -4,192 +4,254 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Michael Dumont - Full Cycle Developer</title>
+    <title>Michael Dumont — Full Stack Developer</title>
+    <meta name="description"
+        content="Michael Dumont — Full Stack Developer especializado em soluções robustas e seguras. PHP, Laravel, Python, DevOps e muito mais.">
+    <link rel="icon" type="image/png" href="M-icone.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap"
+        rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #0d1117;
-            --bg-darker: #010409;
-            --primary-green: #2ef66a;
-            --cyan-accent: #4deeea;
-            --pink-accent: #d36df1;
-            --text-light: #e6edf3;
-            --text-muted: #7d8590;
+            --bg: #0b0f1a;
+            --bg-card: rgba(255, 255, 255, 0.04);
+            --bg-card-hover: rgba(255, 255, 255, 0.07);
+            --border: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(139, 92, 246, 0.5);
+
+            --violet: #8b5cf6;
+            --violet-light: #a78bfa;
+            --cyan: #22d3ee;
+            --cyan-light: #67e8f9;
+            --gradient: linear-gradient(135deg, var(--violet), var(--cyan));
+
+            --text: #f1f5f9;
+            --text-muted: #94a3b8;
+            --text-faint: #475569;
         }
 
-        html {
-            font-size: clamp(16px, 1.6vw + 10px, 20px);
-        }
-
-        * {
+        *,
+        *::before,
+        *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'VT323', monospace;
-            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-darker) 100%);
-            color: var(--text-light);
-            line-height: 1.6;
-            font-size: 20px;
-            min-height: 100vh;
+        html {
+            scroll-behavior: smooth;
         }
 
-        /* CRT Scanlines Effect */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 18px;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Subtle background texture */
         body::before {
-            content: "";
+            content: '';
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: repeating-linear-gradient(0deg,
-                    rgba(0, 0, 0, 0.1),
-                    rgba(0, 0, 0, 0.1) 1px,
-                    transparent 1px,
-                    transparent 2px);
+            inset: 0;
+            background:
+                radial-gradient(ellipse 80% 50% at 20% -10%, rgba(139, 92, 246, 0.12) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 40% at 80% 100%, rgba(34, 211, 238, 0.08) 0%, transparent 60%);
             pointer-events: none;
-            z-index: 1000;
+            z-index: 0;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 60px 24px 80px;
+            position: relative;
+            z-index: 1;
         }
 
-        /* Header */
-        header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .subtitle {
-            font-family: 'VT323', monospace;
-            font-size: 18px;
-            color: var(--cyan-accent);
-            letter-spacing: 3px;
-            margin-bottom: 20px;
-        }
-
-        /* Hero Section with 3D Text */
+        /* ── HERO ─────────────────────────────── */
         .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 72px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(139, 92, 246, 0.12);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 100px;
+            padding: 6px 18px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--violet-light);
+            margin-bottom: 28px;
+        }
+
+        .badge::before {
+            content: '';
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--cyan);
+            box-shadow: 0 0 8px var(--cyan);
+            animation: blink 2s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.3;
+            }
         }
 
         h1 {
-            font-family: 'Press Start 2P', monospace;
-            font-size: 80px;
-            color: var(--primary-green);
-            text-transform: uppercase;
-            letter-spacing: 8px;
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(48px, 8vw, 96px);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.08;
+            background: linear-gradient(135deg, #c4b5fd 0%, #ffffff 55%, #a5f3fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 32px rgba(139, 92, 246, 0.35));
             margin-bottom: 20px;
-            position: relative;
-            display: inline-block;
-            text-shadow:
-                3px 3px 0px var(--pink-accent),
-                6px 6px 0px var(--cyan-accent),
-                9px 9px 0px rgba(0, 0, 0, 0.3);
         }
 
         .tagline {
-            font-family: 'VT323', monospace;
-            font-size: 24px;
-            color: var(--primary-green);
-            margin-top: 20px;
+            font-size: 21px;
+            color: var(--text-muted);
+            max-width: 480px;
+            font-weight: 400;
         }
 
-        .loading-text {
-            font-family: 'VT323', monospace;
-            font-size: 20px;
-            color: var(--cyan-accent);
-            margin-top: 10px;
-        }
-
-        /* Photo Section */
+        /* ── PHOTO ────────────────────────────── */
         .photo-section {
-            text-align: center;
-            margin: 40px 0;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 72px;
+        }
+
+        .photo-wrapper {
+            position: relative;
+        }
+
+        .photo-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 50%;
+            background: var(--gradient);
+            z-index: -1;
+            opacity: 0.9;
         }
 
         .photo-placeholder {
-            width: 200px;
-            height: 200px;
-            margin: 0 auto;
-            border: 3px solid var(--primary-green);
+            width: 240px;
+            height: 240px;
             border-radius: 50%;
-            background: var(--bg-darker);
+            object-fit: cover;
+            display: block;
+            background: var(--bg);
+            border: 3px solid var(--bg);
+        }
+
+        /* ── SECTION LAYOUT ───────────────────── */
+        section {
+            margin-bottom: 64px;
+        }
+
+        .section-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--violet-light);
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(24px, 4vw, 32px);
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 32px;
+        }
+
+        /* ── ABOUT ────────────────────────────── */
+        .about-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 44px 52px;
+            backdrop-filter: blur(12px);
+        }
+
+        .about-box p {
+            font-size: 19px;
+            color: var(--text-muted);
+            line-height: 1.85;
+            max-width: 700px;
+        }
+
+        /* ── SKILLS ───────────────────────────── */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+        }
+
+        .skill-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 32px;
+            transition: border-color 0.25s, background 0.25s, transform 0.25s;
+            backdrop-filter: blur(8px);
+        }
+
+        .skill-card:hover {
+            border-color: var(--border-hover);
+            background: var(--bg-card-hover);
+            transform: translateY(-4px);
+        }
+
+        .skill-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: var(--gradient);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: 'Press Start 2P', monospace;
+            font-size: 18px;
+            margin-bottom: 16px;
+        }
+
+        .skill-card h3 {
             font-size: 15px;
-            color: var(--text-muted);
-            box-shadow: 0 0 20px rgba(46, 246, 106, 0.3);
-        }
-
-        /* About Section */
-        .about {
-            background: rgba(13, 17, 23, 0.6);
-            border: 2px solid var(--primary-green);
-            padding: 30px;
-            margin-bottom: 40px;
-            box-shadow: 0 0 20px rgba(46, 246, 106, 0.2);
-        }
-
-        .about h2 {
-            font-family: 'Press Start 2P', monospace;
-            font-size: 23px;
-            color: var(--cyan-accent);
-            margin-bottom: 20px;
-        }
-
-        .about p {
-            font-size: 28px;
-            line-height: 1.8;
-            color: var(--text-light);
-        }
-
-        /* Skills Grid */
-        .skills {
-            margin-bottom: 40px;
-        }
-
-        .skills h2 {
-            font-family: 'Press Start 2P', monospace;
-            font-size: 23px;
-            color: var(--cyan-accent);
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .skill-category {
-            background: rgba(13, 17, 23, 0.6);
-            border: 1px solid var(--primary-green);
-            padding: 20px;
-            transition: all 0.3s;
-        }
-
-        .skill-category:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(46, 246, 106, 0.3);
-        }
-
-        .skill-category h3 {
-            font-family: 'Press Start 2P', monospace;
-            font-size: 15px;
-            color: var(--pink-accent);
-            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text);
+            margin-bottom: 14px;
         }
 
         .skill-list {
@@ -197,164 +259,292 @@
         }
 
         .skill-list li {
-            padding: 5px 0;
-            font-size: 25px;
-            color: var(--text-light);
+            font-size: 17px;
+            color: var(--text-muted);
+            padding: 4px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .skill-list li::before {
-            content: '▸ ';
-            color: var(--primary-green);
+            content: '';
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--cyan);
+            flex-shrink: 0;
         }
 
-        /* Projects */
-        .projects {
-            margin-bottom: 40px;
-        }
-
-        .projects h2 {
-            font-family: 'Press Start 2P', monospace;
-            font-size: 18px;
-            color: var(--cyan-accent);
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
+        /* ── PROJECTS ─────────────────────────── */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            gap: 20px;
         }
 
         .project-card {
-            background: rgba(13, 17, 23, 0.6);
-            border: 2px solid var(--primary-green);
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
             text-decoration: none;
-            color: var(--text-light);
-            transition: all 0.3s;
+            color: var(--text);
+            transition: border-color 0.25s, background 0.25s, transform 0.25s;
             overflow: hidden;
+            display: block;
+            backdrop-filter: blur(8px);
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 25px rgba(46, 246, 106, 0.4);
+            border-color: var(--border-hover);
+            background: var(--bg-card-hover);
+            transform: translateY(-4px);
         }
 
         .project-thumbnail {
             width: 100%;
-            height: 180px;
+            height: 200px;
             object-fit: cover;
-            border-bottom: 2px solid var(--primary-green);
+            display: block;
+            border-bottom: 1px solid var(--border);
         }
 
         .project-info {
-            padding: 20px;
+            padding: 28px 30px;
         }
 
         .project-card h3 {
-            font-family: 'Press Start 2P', monospace;
-            font-size: 15px;
-            color: var(--primary-green);
-            margin-bottom: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 6px;
         }
 
         .project-card p {
-            font-size: 23px;
+            font-size: 13px;
             color: var(--text-muted);
         }
 
-        /* Links */
-        .links {
-            margin-bottom: 40px;
+        .project-arrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--violet-light);
+            margin-top: 12px;
+            opacity: 0;
+            transition: opacity 0.2s;
         }
 
-        .links h2 {
-            font-family: 'Press Start 2P', monospace;
-            font-size: 18px;
-            color: var(--cyan-accent);
-            margin-bottom: 30px;
-            text-align: center;
+        .project-card:hover .project-arrow {
+            opacity: 1;
         }
 
+        /* ── LINKS / CONTACT ──────────────────── */
         .links-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 14px;
         }
 
         .link-card {
-            background: rgba(13, 17, 23, 0.6);
-            border: 2px solid var(--primary-green);
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
             padding: 20px;
             text-align: center;
             text-decoration: none;
-            color: var(--primary-green);
-            transition: all 0.3s;
-            font-family: 'Press Start 2P', monospace;
-            font-size: 15px;
+            color: var(--text-muted);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            transition: border-color 0.25s, background 0.25s, color 0.25s, transform 0.25s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
         }
 
         .link-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(46, 246, 106, 0.5);
+            border-color: var(--border-hover);
+            background: var(--bg-card-hover);
+            color: var(--text);
+            transform: translateY(-3px);
         }
 
-        /* Footer */
+        .link-icon {
+            font-size: 22px;
+        }
+
+        /* ── FOOTER ───────────────────────────── */
         footer {
             text-align: center;
-            padding: 30px 0;
-            font-size: 20px;
-            color: var(--text-muted);
-            border-top: 1px solid var(--primary-green);
+            padding: 32px 0 0;
+            border-top: 1px solid var(--border);
+            font-size: 13px;
+            color: var(--text-faint);
+            font-weight: 400;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            html {
-                font-size: clamp(20px, 3.2vw + 14px, 24px);
+        footer span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+        }
+
+        /* ── CORPORATE LOGO CARDS ─────────────── */
+        .corp-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .corp-logo-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            overflow: hidden;
+            transition: border-color 0.25s, background 0.25s, transform 0.25s;
+            backdrop-filter: blur(8px);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .corp-logo-card:hover {
+            border-color: var(--border-hover);
+            background: var(--bg-card-hover);
+            transform: translateY(-4px);
+        }
+
+        .corp-logo-box {
+            background: #ffffff;
+            padding: 28px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid var(--border);
+            min-height: 120px;
+        }
+
+        .corp-logo-img {
+            max-height: 60px;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .corp-card-body {
+            padding: 24px 28px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .corp-card-body h3 {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .corp-card-body p {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.75;
+            flex: 1;
+        }
+
+        /* ── CONFIDENTIAL CARDS ───────────────── */
+        .corp-desc {
+            font-size: 17px;
+            color: var(--text-muted);
+            line-height: 1.8;
+            max-width: 720px;
+            margin-bottom: 32px;
+        }
+
+        .corp-desc strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .confidential-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        .confidential-card {
+            background: rgba(139, 92, 246, 0.05);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 14px;
+            padding: 28px 30px;
+            transition: border-color 0.25s, background 0.25s, transform 0.25s;
+        }
+
+        .confidential-card:hover {
+            border-color: rgba(139, 92, 246, 0.45);
+            background: rgba(139, 92, 246, 0.08);
+            transform: translateY(-4px);
+        }
+
+        .conf-lock {
+            font-size: 28px;
+            margin-bottom: 14px;
+            filter: grayscale(0.3);
+        }
+
+        .confidential-card h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+            margin-bottom: 10px;
+        }
+
+        .confidential-card p {
+            font-size: 15px;
+            color: var(--text-faint);
+            line-height: 1.75;
+            margin-bottom: 16px;
+        }
+
+        .conf-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .conf-tags span {
+            font-size: 12px;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 100px;
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.25);
+            color: var(--violet-light);
+            letter-spacing: 0.04em;
+        }
+
+        /* ── RESPONSIVE ───────────────────────── */
+        @media (max-width: 640px) {
+            .container {
+                padding: 40px 16px 60px;
             }
 
-            body {
-                font-size: 24px;
+            .about-box {
+                padding: 24px 20px;
             }
 
             h1 {
-                font-size: 72px;
-                letter-spacing: 4px;
-                text-shadow:
-                    2px 2px 0px var(--pink-accent),
-                    4px 4px 0px var(--cyan-accent),
-                    6px 6px 0px rgba(0, 0, 0, 0.3);
-            }
-
-            .subtitle {
-                font-size: 20px;
+                font-size: clamp(40px, 12vw, 64px);
             }
 
             .tagline {
-                font-size: 26px;
-            }
-
-            .about p {
-                font-size: 30px;
-            }
-
-            .skill-list li {
-                font-size: 22px;
-            }
-
-            .project-card p {
-                font-size: 22px;
-            }
-
-            footer {
-                font-size: 20px;
-            }
-
-            .about,
-            .skill-category,
-            .project-card {
-                padding: 15px;
+                font-size: 15px;
             }
         }
     </style>
@@ -362,56 +552,63 @@
 
 <body>
     <div class="container">
-        <!-- Header -->
-        <header>
-            <div class="subtitle">[ FULL CYCLE DEVELOPER ]</div>
-        </header>
 
-        <!-- Hero Section -->
+        <!-- Hero -->
         <section class="hero">
+            <div class="badge">Full Stack Developer</div>
             <h1>MICHAEL DUMONT</h1>
+            <p class="tagline">Construindo soluções robustas do backend ao DevOps, com foco em qualidade e performance.
+            </p>
         </section>
 
-        <!-- Photo Placeholder -->
-        <section class="photo-section">
-            <img src="Michael.jpg" alt="Michael Dumont" class="photo-placeholder"
-                style="object-fit: cover; width: 200px; height: 200px;">
-        </section>
+        <!-- Photo -->
+        <div class="photo-section">
+            <div class="photo-wrapper">
+                <img src="Michael.jpg" alt="Michael Dumont" class="photo-placeholder">
+            </div>
+        </div>
 
         <!-- About -->
         <section class="about">
-            <h2>SOBRE</h2>
-            <p>
-                Desenvolvedor Full Cycle especializado em criar soluções robustas e seguras.
-                Experiência em projetos fullstack e devops, com foco em qualidade e performance
-                em integrações, scraping, monolitos e microsserviços.
-            </p>
+            <p class="section-label">Sobre mim</p>
+            <h2 class="section-title">Quem sou eu</h2>
+            <div class="about-box">
+                <p>
+                    Desenvolvedor Full Stack especializado em criar soluções robustas e seguras.
+                    Experiência em projetos fullstack e devops, com foco em qualidade e performance
+                    em integrações, scraping, monolitos e microsserviços.
+                </p>
+            </div>
         </section>
 
         <!-- Skills -->
         <section class="skills">
-            <h2>HABILIDADES</h2>
+            <p class="section-label">Stack</p>
+            <h2 class="section-title">Habilidades</h2>
             <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>WEB DEV</h3>
+                <div class="skill-card">
+                    <div class="skill-icon">🌐</div>
+                    <h3>Web Dev</h3>
                     <ul class="skill-list">
-                        <li>PHP & Laravel</li>
-                        <li>Angular & Vue.js</li>
-                        <li>JavaScript/TypeScript</li>
-                        <li>Livewire & Blade</li>
+                        <li>PHP &amp; Laravel</li>
+                        <li>Angular &amp; Vue.js</li>
+                        <li>JavaScript / TypeScript</li>
+                        <li>Livewire &amp; Blade</li>
                     </ul>
                 </div>
-                <div class="skill-category">
-                    <h3>BACKEND</h3>
+                <div class="skill-card">
+                    <div class="skill-icon">⚙️</div>
+                    <h3>Backend</h3>
                     <ul class="skill-list">
-                        <li>Python & Flask</li>
-                        <li>MySQL & PostgreSQL</li>
+                        <li>Python &amp; Flask</li>
+                        <li>MySQL &amp; PostgreSQL</li>
                         <li>MongoDB</li>
-                        <li>API REST & RabbitMQ</li>
+                        <li>API REST &amp; RabbitMQ</li>
                     </ul>
                 </div>
-                <div class="skill-category">
-                    <h3>DEVOPS</h3>
+                <div class="skill-card">
+                    <div class="skill-icon">🚀</div>
+                    <h3>DevOps</h3>
                     <ul class="skill-list">
                         <li>Docker</li>
                         <li>Kong Gateway</li>
@@ -419,10 +616,11 @@
                         <li>Git</li>
                     </ul>
                 </div>
-                <div class="skill-category">
-                    <h3>ARQUITETURA</h3>
+                <div class="skill-card">
+                    <div class="skill-icon">🏗️</div>
+                    <h3>Arquitetura</h3>
                     <ul class="skill-list">
-                        <li>POO & SOLID</li>
+                        <li>POO &amp; SOLID</li>
                         <li>MVC</li>
                         <li>Microservices</li>
                         <li>Monoliths</li>
@@ -433,40 +631,116 @@
 
         <!-- Projects -->
         <section class="projects">
-            <h2>PROJETOS</h2>
+            <p class="section-label">Portfólio</p>
+            <h2 class="section-title">Projetos Pessoais</h2>
             <div class="projects-grid">
                 <a href="https://michaeldumontdev.com/transactions-core/" target="_blank" class="project-card">
                     <img src="Transactions Core.png" alt="Transactions Core" class="project-thumbnail">
                     <div class="project-info">
-                        <h3>TRANSACTIONS CORE</h3>
+                        <h3>Transactions Core</h3>
                         <p>Sistema de transações</p>
+                        <span class="project-arrow">Ver projeto →</span>
                     </div>
                 </a>
                 <a href="https://michaeldumontdev.com/scrapper/" target="_blank" class="project-card">
                     <img src="Scrapper.png" alt="Scrapper" class="project-thumbnail">
                     <div class="project-info">
-                        <h3>SCRAPPER</h3>
+                        <h3>Scrapper</h3>
                         <p>Ferramenta de scraping</p>
+                        <span class="project-arrow">Ver projeto →</span>
                     </div>
                 </a>
             </div>
+
+            <!-- Corporate / Confidential -->
+            <div class="corp-intro">
+                <p class="section-label" style="margin-top: 56px;">Experiência Corporativa</p>
+                <h2 class="section-title">Projetos Corporativos</h2>
+                <p class="corp-desc">Além dos projetos pessoais, participei de <strong>projetos de grande
+                        porte</strong> em ambiente corporativo. Por política interna das empresas, alguns projetos estão
+                    com detalhes confidenciais, mas posso falar sobre os desafios técnicos e meu papel em cada um
+                    durante uma
+                    conversa.</p>
+            </div>
+
+            <!-- Non-confidential corporate cards -->
+            <div class="corp-cards-grid">
+                <div class="corp-logo-card">
+                    <div class="corp-logo-box">
+                        <img src="WizefusionLogo-04-1.webp" alt="Wizefusion" class="corp-logo-img">
+                    </div>
+                    <div class="corp-card-body">
+                        <h3>Wizefusion</h3>
+                        <p>Plataforma baseada em produtos de IA com milhares de usuários. Atuei corrigindo bugs críticos
+                            e desenvolvendo novas funcionalidades, contribuindo diretamente para a estabilidade e
+                            evolução do produto.</p>
+                        <div class="conf-tags"><span>Laravel</span><span>jQuery</span></div>
+                    </div>
+                </div>
+                <div class="corp-logo-card">
+                    <div class="corp-logo-box">
+                        <img src="1_PrimeTec_LOGO.png" alt="PrimeTec" class="corp-logo-img">
+                    </div>
+                    <div class="corp-card-body">
+                        <h3>PrimeTec</h3>
+                        <p>Fui o desenvolvedor principal na fase inicial do projeto — um sistema de tickets para gestão
+                            de profissionais que está em produção até hoje, com adoção real no mercado.</p>
+                        <div class="conf-tags"><span>Laravel</span><span>Vue.js</span><span>MySQL</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="confidential-grid">
+                <div class="confidential-card">
+                    <div class="conf-lock">🔒</div>
+                    <h3>Projeto A</h3>
+                    <p>Plataforma de integração com o Magento, com sincronização de produtos e estoque.</p>
+                    <div class="conf-tags"><span>PHP</span><span>Laravel</span><span>Magento API</span></div>
+                </div>
+                <div class="confidential-card">
+                    <div class="conf-lock">🔒</div>
+                    <h3>Projeto B</h3>
+                    <p>Sistema interno de scraping e processamento de documentos financeiros.
+                    </p>
+                    <div class="conf-tags"><span>Laravel</span><span>PostgreSQL</span><span>Angular</span></div>
+                </div>
+                <div class="confidential-card">
+                    <div class="conf-lock">🔒</div>
+                    <h3>Projeto C</h3>
+                    <p>Aplicação de análise de crédito com microsserviços, gateway de API e autenticação avançada.
+                    </p>
+                    <div class="conf-tags">
+                        <span>Laravel</span><span>Angular</span><span>Kong</span><span>RabbitMQ</span>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <!-- Links -->
+        <!-- Contact -->
         <section class="links">
-            <h2>CONTATO</h2>
+            <p class="section-label">Contato</p>
+            <h2 class="section-title">Conecte-se</h2>
             <div class="links-grid">
-                <a href="https://medium.com/@mdumont567" target="_blank" class="link-card">MEDIUM</a>
-                <a href="https://github.com/Mzed19" target="_blank" class="link-card">GITHUB</a>
-                <a href="https://www.linkedin.com/in/michael-dumont-a73b72202/" target="_blank"
-                    class="link-card">LINKEDIN</a>
+                <a href="https://medium.com/@mdumont567" target="_blank" class="link-card">
+                    <span class="link-icon">✍️</span>
+                    Medium
+                </a>
+                <a href="https://github.com/Mzed19" target="_blank" class="link-card">
+                    <span class="link-icon">🐙</span>
+                    GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/michael-dumont-a73b72202/" target="_blank" class="link-card">
+                    <span class="link-icon">💼</span>
+                    LinkedIn
+                </a>
             </div>
         </section>
 
         <!-- Footer -->
         <footer>
-            <p>&gt; © 2026 MICHAEL DUMONT - FULL CYCLE DEVELOPER</p>
+            <p>© 2026 <span>Michael Dumont</span> — Full Stack Developer</p>
         </footer>
+
     </div>
 </body>
 
