@@ -258,22 +258,22 @@
             list-style: none;
         }
 
-        .skill-list li {
-            font-size: 17px;
-            color: var(--text-muted);
-            padding: 4px 0;
+        .skill-pills {
             display: flex;
-            align-items: center;
+            flex-wrap: wrap;
             gap: 8px;
         }
 
-        .skill-list li::before {
-            content: '';
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            background: var(--cyan);
-            flex-shrink: 0;
+        .skill-pills span {
+            font-size: 13px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 100px;
+            background: rgba(34, 211, 238, 0.08);
+            border: 1px solid rgba(34, 211, 238, 0.2);
+            color: var(--cyan-light);
+            letter-spacing: 0.03em;
+            white-space: nowrap;
         }
 
         /* ── PROJECTS ─────────────────────────── */
@@ -589,42 +589,31 @@
                 <div class="skill-card">
                     <div class="skill-icon">🌐</div>
                     <h3>Web Dev</h3>
-                    <ul class="skill-list">
-                        <li>PHP &amp; Laravel</li>
-                        <li>Angular &amp; Vue.js</li>
-                        <li>JavaScript / TypeScript</li>
-                        <li>Livewire &amp; Blade</li>
-                    </ul>
+                    <div class="skill-pills">
+                        <span>PHP</span><span>Laravel</span><span>Angular</span><span>Vue.js</span><span>JavaScript</span><span>TypeScript</span><span>Livewire</span><span>Blade</span>
+                    </div>
                 </div>
                 <div class="skill-card">
                     <div class="skill-icon">⚙️</div>
                     <h3>Backend</h3>
-                    <ul class="skill-list">
-                        <li>Python &amp; Flask</li>
-                        <li>MySQL &amp; PostgreSQL</li>
-                        <li>MongoDB</li>
-                        <li>API REST &amp; RabbitMQ</li>
-                    </ul>
+                    <div class="skill-pills">
+                        <span>Python</span><span>Flask</span><span>MySQL</span><span>PostgreSQL</span><span>MongoDB</span><span>API
+                            REST</span><span>RabbitMQ</span>
+                    </div>
                 </div>
                 <div class="skill-card">
                     <div class="skill-icon">🚀</div>
                     <h3>DevOps</h3>
-                    <ul class="skill-list">
-                        <li>Docker</li>
-                        <li>Kong Gateway</li>
-                        <li>Azure Pipelines</li>
-                        <li>Git</li>
-                    </ul>
+                    <div class="skill-pills">
+                        <span>Docker</span><span>Kong Gateway</span><span>Azure Pipelines</span><span>Git</span>
+                    </div>
                 </div>
                 <div class="skill-card">
                     <div class="skill-icon">🏗️</div>
                     <h3>Arquitetura</h3>
-                    <ul class="skill-list">
-                        <li>POO &amp; SOLID</li>
-                        <li>MVC</li>
-                        <li>Microservices</li>
-                        <li>Monoliths</li>
-                    </ul>
+                    <div class="skill-pills">
+                        <span>POO</span><span>SOLID</span><span>MVC</span><span>Microservices</span><span>Monoliths</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -722,15 +711,15 @@
             <h2 class="section-title">Conecte-se</h2>
             <div class="links-grid">
                 <a href="https://medium.com/@mdumont567" target="_blank" class="link-card">
-                    <span class="link-icon">✍️</span>
+                    <span class="link-icon"><img src="medium.png" alt="Medium" width="32" height="32"></span>
                     Medium
                 </a>
                 <a href="https://github.com/Mzed19" target="_blank" class="link-card">
-                    <span class="link-icon">🐙</span>
+                    <span class="link-icon"><img src="github.png" alt="GitHub" width="32" height="32"></span>
                     GitHub
                 </a>
                 <a href="https://www.linkedin.com/in/michael-dumont-a73b72202/" target="_blank" class="link-card">
-                    <span class="link-icon">💼</span>
+                    <span class="link-icon"><img src="linkedin.png" alt="LinkedIn" width="32" height="32"></span>
                     LinkedIn
                 </a>
             </div>
