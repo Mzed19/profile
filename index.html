@@ -5,14 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Michael Dumont | Full Stack Developer</title>
-    <meta name="description"
-        content="Michael Dumont | Full Stack Developer especializado em soluções robustas e seguras. PHP, Laravel, Python, DevOps e muito mais.">
+    <meta name="description" content="Michael Dumont | Full Stack Developer especializado em soluções robustas e seguras. PHP, Laravel, Python, DevOps e muito mais.">
     <link rel="icon" type="image/png" href="M-icone.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #0b0f1a;
@@ -278,7 +275,7 @@
         /* ── PROJECTS ─────────────────────────── */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 20px;
         }
 
@@ -397,7 +394,7 @@
         /* ── CORPORATE LOGO CARDS ─────────────── */
         .corp-cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 16px;
             margin-bottom: 24px;
         }
@@ -433,6 +430,18 @@
             max-height: 60px;
             max-width: 100%;
             object-fit: contain;
+        }
+
+        .corp-logo-box--cover {
+            background: #111;
+            padding: 0;
+        }
+
+        .corp-logo-box--cover .corp-logo-img {
+            max-height: none;
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
         }
 
         .corp-card-body {
@@ -545,6 +554,14 @@
             .tagline {
                 font-size: 15px;
             }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .corp-cards-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -656,6 +673,20 @@
                         <div class="conf-tags"><span>Laravel</span><span>Vue.js</span><span>MySQL</span></div>
                     </div>
                 </div>
+                <div class="corp-logo-card">
+                    <div class="corp-logo-box corp-logo-box--cover">
+                        <img src="core_educao_cover.jpg" alt="Core Educação" class="corp-logo-img">
+                    </div>
+                    <div class="corp-card-body">
+                        <h3>Core Educação</h3>
+                        <p>Prestei serviços em dois projetos do grupo Core Educação, ambos em produção até hoje.
+                            Corrigi e desenvolvi funcionalidades em um editor de vídeo web, lidando com
+                            processamentos simultâneos de mídia, memory leak e concorrência. Em outro projeto, assumi um
+                            sistema crítico de gestão interna — caixa e movimentação de equipe, com milhões de reais
+                            tornados visíveis pelo software. Resolvi bugs e refatorei o
+                            projeto por completo.</p>
+                    </div>
+                </div>
             </div>
 
             <div class="confidential-grid">
@@ -681,16 +712,25 @@
                         <span>Laravel</span><span>Angular</span><span>Kong</span><span>RabbitMQ</span>
                     </div>
                 </div>
+                <div class="confidential-card">
+                    <div class="conf-lock">🔒</div>
+                    <h3>Projeto D</h3>
+                    <p>IA de análises com insumos integrados ao software principal da empresa.
+                    </p>
+                    <div class="conf-tags">
+                        <span>Python</span><span>SLM</span><span>Redis</span><span>Laravel</span>
+                    </div>
+                </div>
             </div>
             <p class="section-label" style="margin-top: 56px;">Portfólio</p>
 
             <h2 class="section-title">Projetos Pessoais</h2>
             <div class="projects-grid">
-                <a href="https://michaeldumontdev.com/transactions-core/" target="_blank" class="project-card">
-                    <img src="Transactions Core.png" alt="Transactions Core" class="project-thumbnail">
+                <a href="https://www.michaeldumontdev.com/contract-ai/" target="_blank" class="project-card">
+                    <img src="ContractIA.png" alt="ContractIA" class="project-thumbnail">
                     <div class="project-info">
-                        <h3>Transactions Core</h3>
-                        <p>Sistema de transações</p>
+                        <h3>ContractIA</h3>
+                        <p>Análise inteligente de contratos com RAG e SLM local</p>
                         <span class="project-arrow">Ver projeto →</span>
                     </div>
                 </a>
@@ -699,6 +739,14 @@
                     <div class="project-info">
                         <h3>Scrapper</h3>
                         <p>Ferramenta de scraping</p>
+                        <span class="project-arrow">Ver projeto →</span>
+                    </div>
+                </a>
+                <a href="https://michaeldumontdev.com/transactions-core/" target="_blank" class="project-card">
+                    <img src="Transactions Core.png" alt="Transactions Core" class="project-thumbnail">
+                    <div class="project-info">
+                        <h3>Transactions Core</h3>
+                        <p>Sistema de transações</p>
                         <span class="project-arrow">Ver projeto →</span>
                     </div>
                 </a>
