@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Michael Dumont | Full Stack Developer</title>
-    <meta name="description" content="Michael Dumont | Full Stack Developer especializado em soluções robustas e seguras. PHP, Laravel, Python, DevOps e muito mais.">
+    <meta name="description" content="Michael Dumont | Full Stack Developer especializado em soluções robustas e seguras. LLMs, processamento acelerado por GPU, sistemas distribuídos, Linux, PHP, Laravel, Python e DevOps.">
     <link rel="icon" type="image/png" href="M-icone.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -77,6 +77,69 @@
             align-items: center;
             text-align: center;
             margin-bottom: 72px;
+        }
+
+        .lang-toggle {
+            display: inline-flex;
+            align-items: center;
+            position: relative;
+            background: rgba(148, 163, 184, 0.12);
+            border: 1px solid rgba(148, 163, 184, 0.3);
+            border-radius: 100px;
+            padding: 4px;
+            margin-bottom: 20px;
+            gap: 0;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .lang-option:focus-visible {
+            outline: 2px solid var(--metallic-light);
+            outline-offset: 2px;
+            border-radius: 100px;
+        }
+
+        .lang-option:hover {
+            color: var(--text-muted);
+        }
+
+        .lang-thumb {
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            width: calc(50% - 4px);
+            height: calc(100% - 8px);
+            border-radius: 100px;
+            background: rgba(148, 163, 184, 0.28);
+            box-shadow: 0 0 12px rgba(148, 163, 184, 0.18);
+            transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+        }
+
+        .lang-toggle[data-lang="en"] .lang-thumb {
+            transform: translateX(100%);
+        }
+
+        .lang-option {
+            position: relative;
+            z-index: 1;
+            min-width: 52px;
+            padding: 6px 14px;
+            font-family: inherit;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--text-faint);
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: color 0.25s;
+        }
+
+        .lang-toggle[data-lang="pt"] .lang-option[data-lang="pt"],
+        .lang-toggle[data-lang="en"] .lang-option[data-lang="en"] {
+            color: var(--metallic-light);
         }
 
         .badge {
@@ -571,9 +634,14 @@
 
         <!-- Hero -->
         <section class="hero">
+            <div class="lang-toggle" data-lang="pt" role="group" aria-label="Idioma">
+                <span class="lang-thumb" aria-hidden="true"></span>
+                <button type="button" class="lang-option" data-lang="pt" aria-pressed="true">PT</button>
+                <button type="button" class="lang-option" data-lang="en" aria-pressed="false">EN</button>
+            </div>
             <div class="badge">Full Stack Developer</div>
             <h1>MICHAEL DUMONT</h1>
-            <p class="tagline">Construindo soluções robustas do backend ao DevOps, com foco em qualidade e performance.
+            <p class="tagline" data-i18n="tagline">Do backend ao DevOps: LLMs, GPU, sistemas distribuídos e Linux — com foco em qualidade e performance.
             </p>
         </section>
 
@@ -586,13 +654,16 @@
 
         <!-- About -->
         <section class="about">
-            <p class="section-label">Sobre mim</p>
-            <h2 class="section-title">Quem sou eu</h2>
+            <p class="section-label" data-i18n="aboutLabel">Sobre mim</p>
+            <h2 class="section-title" data-i18n="aboutTitle">Quem sou eu</h2>
             <div class="about-box">
-                <p>
+                <p data-i18n="aboutText">
                     Desenvolvedor Full Stack especializado em criar soluções robustas e seguras.
-                    Experiência em projetos fullstack e devops, com foco em qualidade e performance
-                    em integrações, scraping, monolitos e microsserviços.
+                    Experiência em projetos fullstack e DevOps, com atuação em LLMs, processamento
+                    acelerado por GPU e sistemas distribuídos, além de forte experiência em Linux.
+                    Foco em qualidade e performance em integrações, scraping, monolitos e
+                    microsserviços — incluindo código que reduziu em 60% o tempo de um processo
+                    de processamento de vídeo.
                 </p>
             </div>
         </section>
@@ -600,7 +671,7 @@
         <!-- Skills -->
         <section class="skills">
             <p class="section-label">Stack</p>
-            <h2 class="section-title">Habilidades</h2>
+            <h2 class="section-title" data-i18n="skillsTitle">Habilidades</h2>
             <div class="skills-grid">
                 <div class="skill-card">
                     <div class="skill-icon">🌐</div>
@@ -621,14 +692,21 @@
                     <div class="skill-icon">🚀</div>
                     <h3>DevOps</h3>
                     <div class="skill-pills">
-                        <span>Docker</span><span>Kong Gateway</span><span>Azure Pipelines</span><span>Git</span>
+                        <span>Docker</span><span>Linux</span><span>Kong Gateway</span><span>Azure Pipelines</span><span>Git</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🧠</div>
+                    <h3 data-i18n="skillAiInfra">IA &amp; Infra</h3>
+                    <div class="skill-pills">
+                        <span>LLMs</span><span>GPU</span><span>Linux</span><span data-i18n="skillDistributed">Sistemas distribuídos</span>
                     </div>
                 </div>
                 <div class="skill-card">
                     <div class="skill-icon">🏗️</div>
-                    <h3>Arquitetura</h3>
+                    <h3 data-i18n="skillArchitecture">Arquitetura</h3>
                     <div class="skill-pills">
-                        <span>POO</span><span>SOLID</span><span>MVC</span><span>Microservices</span><span>Monoliths</span>
+                        <span data-i18n="skillOOP">POO</span><span>SOLID</span><span>MVC</span><span>Microservices</span><span>Monoliths</span>
                     </div>
                 </div>
             </div>
@@ -639,9 +717,9 @@
 
             <!-- Corporate / Confidential -->
             <div class="corp-intro">
-                <p class="section-label" style="margin-top: 56px;">Experiência Corporativa</p>
-                <h2 class="section-title">Projetos Corporativos</h2>
-                <p class="corp-desc">Além dos projetos pessoais, participei de <strong>projetos de grande
+                <p class="section-label" style="margin-top: 56px;" data-i18n="corpLabel">Experiência Corporativa</p>
+                <h2 class="section-title" data-i18n="corpTitle">Projetos Corporativos</h2>
+                <p class="corp-desc" data-i18n-html="corpDesc">Além dos projetos pessoais, participei de <strong>projetos de grande
                         porte</strong> em ambiente corporativo. Por política interna das empresas, alguns projetos estão
                     com detalhes confidenciais, mas posso falar sobre os desafios técnicos e meu papel em cada um
                     durante uma
@@ -656,7 +734,7 @@
                     </div>
                     <div class="corp-card-body">
                         <h3>Wizefusion</h3>
-                        <p>Plataforma baseada em produtos de IA com milhares de usuários. Atuei corrigindo bugs críticos
+                        <p data-i18n="wizefusionDesc">Plataforma baseada em produtos de IA com milhares de usuários. Atuei corrigindo bugs críticos
                             e desenvolvendo novas funcionalidades, contribuindo diretamente para a estabilidade e
                             evolução do produto.</p>
                         <div class="conf-tags"><span>Laravel</span><span>jQuery</span></div>
@@ -668,7 +746,7 @@
                     </div>
                     <div class="corp-card-body">
                         <h3>PrimeTec</h3>
-                        <p>Fui o desenvolvedor principal na fase inicial do projeto — um sistema de tickets para gestão
+                        <p data-i18n="primetecDesc">Fui o desenvolvedor principal na fase inicial do projeto — um sistema de tickets para gestão
                             de profissionais que está em produção até hoje, com adoção real no mercado.</p>
                         <div class="conf-tags"><span>Laravel</span><span>Vue.js</span><span>MySQL</span></div>
                     </div>
@@ -679,9 +757,10 @@
                     </div>
                     <div class="corp-card-body">
                         <h3>Core Educação</h3>
-                        <p>Prestei serviços em dois projetos do grupo Core Educação, ambos em produção até hoje.
+                        <p data-i18n="coreDesc">Prestei serviços em dois projetos do grupo Core Educação, ambos em produção até hoje.
                             Corrigi e desenvolvi funcionalidades em um editor de vídeo web, lidando com
-                            processamentos simultâneos de mídia, memory leak e concorrência. Em outro projeto, assumi um
+                            processamentos simultâneos de mídia, memory leak e concorrência — inclusive com código
+                            que reduziu em 60% o tempo de um processo de processamento de vídeo. Em outro projeto, assumi um
                             sistema crítico de gestão interna — caixa e movimentação de equipe, com milhões de reais
                             tornados visíveis pelo software. Resolvi bugs e refatorei o
                             projeto por completo.</p>
@@ -692,21 +771,21 @@
             <div class="confidential-grid">
                 <div class="confidential-card">
                     <div class="conf-lock">🔒</div>
-                    <h3>Projeto A</h3>
-                    <p>Plataforma de integração com o Magento, com sincronização de produtos e estoque.</p>
+                    <h3 data-i18n="projectA">Projeto A</h3>
+                    <p data-i18n="projectADesc">Plataforma de integração com o Magento, com sincronização de produtos e estoque.</p>
                     <div class="conf-tags"><span>PHP</span><span>Laravel</span><span>Magento API</span></div>
                 </div>
                 <div class="confidential-card">
                     <div class="conf-lock">🔒</div>
-                    <h3>Projeto B</h3>
-                    <p>Sistema interno de scraping e processamento de documentos financeiros.
+                    <h3 data-i18n="projectB">Projeto B</h3>
+                    <p data-i18n="projectBDesc">Sistema interno de scraping e processamento de documentos financeiros.
                     </p>
                     <div class="conf-tags"><span>Laravel</span><span>PostgreSQL</span><span>Angular</span></div>
                 </div>
                 <div class="confidential-card">
                     <div class="conf-lock">🔒</div>
-                    <h3>Projeto C</h3>
-                    <p>Aplicação de análise de crédito com microsserviços, gateway de API e autenticação avançada.
+                    <h3 data-i18n="projectC">Projeto C</h3>
+                    <p data-i18n="projectCDesc">Aplicação de análise de crédito com microsserviços, gateway de API e autenticação avançada.
                     </p>
                     <div class="conf-tags">
                         <span>Laravel</span><span>Angular</span><span>Kong</span><span>RabbitMQ</span>
@@ -714,40 +793,40 @@
                 </div>
                 <div class="confidential-card">
                     <div class="conf-lock">🔒</div>
-                    <h3>Projeto D</h3>
-                    <p>IA de análises com insumos integrados ao software principal da empresa.
+                    <h3 data-i18n="projectD">Projeto D</h3>
+                    <p data-i18n="projectDDesc">IA de análises com insumos integrados ao software principal da empresa.
                     </p>
                     <div class="conf-tags">
                         <span>Python</span><span>SLM</span><span>Redis</span><span>Laravel</span>
                     </div>
                 </div>
             </div>
-            <p class="section-label" style="margin-top: 56px;">Portfólio</p>
+            <p class="section-label" style="margin-top: 56px;" data-i18n="portfolioLabel">Portfólio</p>
 
-            <h2 class="section-title">Projetos Pessoais</h2>
+            <h2 class="section-title" data-i18n="personalTitle">Projetos Pessoais</h2>
             <div class="projects-grid">
                 <a href="https://www.michaeldumontdev.com/contract-ai/" target="_blank" class="project-card">
                     <img src="ContractIA.png" alt="ContractIA" class="project-thumbnail">
                     <div class="project-info">
                         <h3>ContractIA</h3>
-                        <p>Análise inteligente de contratos com RAG e SLM local</p>
-                        <span class="project-arrow">Ver projeto →</span>
+                        <p data-i18n="contractiaDesc">Análise inteligente de contratos com RAG e SLM local</p>
+                        <span class="project-arrow" data-i18n="viewProject">Ver projeto →</span>
                     </div>
                 </a>
                 <a href="https://michaeldumontdev.com/scrapper/" target="_blank" class="project-card">
                     <img src="Scrapper.png" alt="Scrapper" class="project-thumbnail">
                     <div class="project-info">
                         <h3>Scrapper</h3>
-                        <p>Ferramenta de scraping</p>
-                        <span class="project-arrow">Ver projeto →</span>
+                        <p data-i18n="scrapperDesc">Ferramenta de scraping</p>
+                        <span class="project-arrow" data-i18n="viewProject">Ver projeto →</span>
                     </div>
                 </a>
                 <a href="https://michaeldumontdev.com/transactions-core/" target="_blank" class="project-card">
                     <img src="Transactions Core.png" alt="Transactions Core" class="project-thumbnail">
                     <div class="project-info">
                         <h3>Transactions Core</h3>
-                        <p>Sistema de transações</p>
-                        <span class="project-arrow">Ver projeto →</span>
+                        <p data-i18n="transactionsDesc">Sistema de transações</p>
+                        <span class="project-arrow" data-i18n="viewProject">Ver projeto →</span>
                     </div>
                 </a>
             </div>
@@ -755,8 +834,8 @@
 
         <!-- Contact -->
         <section class="links">
-            <p class="section-label">Contato</p>
-            <h2 class="section-title">Conecte-se</h2>
+            <p class="section-label" data-i18n="contactLabel">Contato</p>
+            <h2 class="section-title" data-i18n="contactTitle">Conecte-se</h2>
             <div class="links-grid">
                 <a href="https://medium.com/@mdumont567" target="_blank" class="link-card">
                     <span class="link-icon"><img src="medium.png" alt="Medium" width="32" height="32"></span>
@@ -779,6 +858,119 @@
         </footer>
 
     </div>
+    <script>
+        const translations = {
+            pt: {
+                tagline: 'Do backend ao DevOps: LLMs, GPU, sistemas distribuídos e Linux — com foco em qualidade e performance.',
+                aboutLabel: 'Sobre mim',
+                aboutTitle: 'Quem sou eu',
+                aboutText: 'Desenvolvedor Full Stack especializado em criar soluções robustas e seguras. Experiência em projetos fullstack e DevOps, com atuação em LLMs, processamento acelerado por GPU e sistemas distribuídos, além de forte experiência em Linux. Foco em qualidade e performance em integrações, scraping, monolitos e microsserviços. Expertise em código que reduziu em 60% o tempo de processos pesados.',
+                skillsTitle: 'Habilidades',
+                skillAiInfra: 'IA & Infra',
+                skillDistributed: 'Sistemas distribuídos',
+                skillArchitecture: 'Arquitetura',
+                skillOOP: 'POO',
+                corpLabel: 'Experiência Corporativa',
+                corpTitle: 'Projetos Corporativos',
+                corpDesc: 'Além dos projetos pessoais, participei de <strong>projetos de grande porte</strong> em ambiente corporativo. Por política interna das empresas, alguns projetos estão com detalhes confidenciais, mas posso falar sobre os desafios técnicos e meu papel em cada um durante uma conversa.',
+                wizefusionDesc: 'Plataforma baseada em produtos de IA com milhares de usuários. Atuei corrigindo bugs críticos e desenvolvendo novas funcionalidades, contribuindo diretamente para a estabilidade e evolução do produto.',
+                primetecDesc: 'Fui o desenvolvedor principal na fase inicial do projeto — um sistema de tickets para gestão de profissionais que está em produção até hoje, com adoção real no mercado.',
+                coreDesc: 'Prestei serviços em dois projetos do grupo Core Educação, ambos em produção até hoje. Corrigi e desenvolvi funcionalidades em um editor de vídeo web, lidando com processamentos simultâneos de mídia, memory leak e concorrência — inclusive com código que reduziu em 60% o tempo de um processo de processamento de vídeo. Em outro projeto, assumi um sistema crítico de gestão interna — caixa e movimentação de equipe, com milhões de reais tornados visíveis pelo software. Resolvi bugs e refatorei o projeto por completo.',
+                projectA: 'Projeto A',
+                projectADesc: 'Plataforma de integração com o Magento, com sincronização de produtos e estoque.',
+                projectB: 'Projeto B',
+                projectBDesc: 'Sistema interno de scraping e processamento de documentos financeiros.',
+                projectC: 'Projeto C',
+                projectCDesc: 'Aplicação de análise de crédito com microsserviços, gateway de API e autenticação avançada.',
+                projectD: 'Projeto D',
+                projectDDesc: 'IA de análises com insumos integrados ao software principal da empresa.',
+                portfolioLabel: 'Portfólio',
+                personalTitle: 'Projetos Pessoais',
+                contractiaDesc: 'Análise inteligente de contratos com RAG e SLM local',
+                scrapperDesc: 'Ferramenta de scraping',
+                transactionsDesc: 'Sistema de transações',
+                viewProject: 'Ver projeto →',
+                contactLabel: 'Contato',
+                contactTitle: 'Conecte-se',
+                metaDesc: 'Michael Dumont | Full Stack Developer especializado em soluções robustas e seguras. LLMs, processamento acelerado por GPU, sistemas distribuídos, Linux, PHP, Laravel, Python e DevOps.',
+                langAria: 'Idioma'
+            },
+            en: {
+                tagline: 'From backend to DevOps: LLMs, GPU, distributed systems, and Linux — with a focus on quality and performance.',
+                aboutLabel: 'About me',
+                aboutTitle: 'Who I am',
+                aboutText: 'Full Stack Developer specialized in building robust and secure solutions. Experience in fullstack and DevOps projects, working with LLMs, GPU-accelerated processing, and distributed systems, plus strong Linux experience. Focused on quality and performance in integrations, scraping, monoliths, and microservices. Expertise in code that reduced a heighted processing pipeline\'s runtime by 60%.',
+                skillsTitle: 'Skills',
+                skillAiInfra: 'AI & Infra',
+                skillDistributed: 'Distributed systems',
+                skillArchitecture: 'Architecture',
+                skillOOP: 'OOP',
+                corpLabel: 'Corporate Experience',
+                corpTitle: 'Corporate Projects',
+                corpDesc: 'Beyond personal projects, I have worked on <strong>large-scale projects</strong> in a corporate environment. Due to internal company policies, some projects have confidential details, but I can discuss the technical challenges and my role in each of them in a conversation.',
+                wizefusionDesc: 'AI-based product platform with thousands of users. I fixed critical bugs and developed new features, contributing directly to the product\'s stability and evolution.',
+                primetecDesc: 'I was the lead developer in the project\'s initial phase — a ticket system for professional management that is still in production today, with real market adoption.',
+                coreDesc: 'I worked on two projects for the Core Educação group, both still in production today. I fixed and developed features in a web video editor, dealing with concurrent media processing, memory leaks, and concurrency — including code that cut a video processing pipeline\'s runtime by 60%. In another project, I took over a critical internal management system — cash flow and team movement, with millions of reais made visible by the software. I fixed bugs and fully refactored the project.',
+                projectA: 'Project A',
+                projectADesc: 'Magento integration platform with product and inventory synchronization.',
+                projectB: 'Project B',
+                projectBDesc: 'Internal system for scraping and processing financial documents.',
+                projectC: 'Project C',
+                projectCDesc: 'Credit analysis application with microservices, API gateway, and advanced authentication.',
+                projectD: 'Project D',
+                projectDDesc: 'Analytics AI with inputs integrated into the company\'s core software.',
+                portfolioLabel: 'Portfolio',
+                personalTitle: 'Personal Projects',
+                contractiaDesc: 'Intelligent contract analysis with RAG and a local SLM',
+                scrapperDesc: 'Scraping tool',
+                transactionsDesc: 'Transaction system',
+                viewProject: 'View project →',
+                contactLabel: 'Contact',
+                contactTitle: 'Get in touch',
+                metaDesc: 'Michael Dumont | Full Stack Developer specialized in robust and secure solutions. LLMs, GPU-accelerated processing, distributed systems, Linux, PHP, Laravel, Python, and DevOps.',
+                langAria: 'Language'
+            }
+        };
+
+        const langToggle = document.querySelector('.lang-toggle');
+        const langButtons = langToggle.querySelectorAll('.lang-option');
+        const metaDesc = document.querySelector('meta[name="description"]');
+
+        function setLanguage(lang) {
+            const dict = translations[lang];
+            if (!dict) return;
+
+            document.documentElement.lang = lang === 'en' ? 'en' : 'pt-BR';
+            langToggle.dataset.lang = lang;
+            langToggle.setAttribute('aria-label', dict.langAria);
+            metaDesc.setAttribute('content', dict.metaDesc);
+
+            langButtons.forEach((btn) => {
+                btn.setAttribute('aria-pressed', String(btn.dataset.lang === lang));
+            });
+
+            document.querySelectorAll('[data-i18n]').forEach((el) => {
+                const key = el.dataset.i18n;
+                if (dict[key]) el.textContent = dict[key];
+            });
+
+            document.querySelectorAll('[data-i18n-html]').forEach((el) => {
+                const key = el.dataset.i18nHtml;
+                if (dict[key]) el.innerHTML = dict[key];
+            });
+
+            localStorage.setItem('lang', lang);
+        }
+
+        langButtons.forEach((btn) => {
+            btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+        });
+
+        const savedLang = localStorage.getItem('lang');
+        if (savedLang === 'en' || savedLang === 'pt') {
+            setLanguage(savedLang);
+        }
+    </script>
 </body>
 
 </html>
